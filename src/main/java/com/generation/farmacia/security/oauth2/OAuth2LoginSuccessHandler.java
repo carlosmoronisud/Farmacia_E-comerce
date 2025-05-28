@@ -28,7 +28,7 @@ public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    @Value("${frontend.redirect.url:http://localhost:3000/oauth2/callback}")
+    @Value("${frontend.redirect.url:http://localhost:8080/}")
     private String frontendRedirectUrl;
 
     private ObjectMapper objectMapper = new ObjectMapper();

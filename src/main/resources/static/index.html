@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmácia - Projeto em Construção</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #e6f7ff; /* Um azul claro para tema de farmácia */
+            color: #2c3e50;
+            text-align: center;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            max-width: 600px;
+            border: 2px solid #3498db; /* Borda azul */
+        }
+        h1 {
+            color: #3498db; /* Azul vibrante */
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        .contact-info {
+            margin-top: 30px;
+            font-size: 1em;
+            color: #7f8c8d;
+        }
+        .button-api {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 15px 30px;
+            background-color: #2ecc71; /* Verde saúde */
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.3em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .button-api:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+        }
+        .api-link {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .api-link a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .api-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💊 Farmácia E-commerce 🛒</h1>
+        <p>Seja bem-vindo(a) à API do seu novo sistema de Comércio Eletrônico de Farmácia!</p>
+        <p>Estamos no processo de desenvolvimento para otimizar a gestão de medicamentos, estoque e vendas.</p>
+        <p>Esta é uma API REST robusta e segura, pensada para as suas necessidades específicas.</p>
+        <p>Em breve, teremos a solução completa para revolucionar suas operações!</p>
+        <a href="http://localhost:8080/oauth2/authorization/google" class="button-api">Login com Google (para acessar a API)</a>
+        <div class="api-link">
+            Ou acesse a documentação da API diretamente (após login): <a href="http://localhost:8080/swagger-ui.html">Documentação Swagger UI</a>
+        </div>
+        <div class="contact-info">
+            <p>Para mais informações, contate a equipe de desenvolvimento.</p>
+        </div>
+    </div>
+</body>
+</html>
