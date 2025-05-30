@@ -3,7 +3,7 @@
 <br />
 
 <div align="center">
-  <img src="https://via.placeholder.com/800x300?text=Farmacia+E-commerce+API" title="source: placeholder.com" alt="Farmacia E-commerce API Logo" />
+    <img src="https://i.imgur.com/w8tTOuT.png" title="source: imgur.com" /> 
 </div>
 
 <br />
