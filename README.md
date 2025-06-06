@@ -15,7 +15,7 @@
   <img src="https://img.shields.io/github/last-commit/carlosmoronisud/projeto_final_bloco_02?style=flat-square" alt="Last Commit"/>
   <img src="https://img.shields.io/github/issues/carlosmoronisud/projeto_final_bloco_02?style=flat-square" alt="Open Issues"/>
   <img src="https://img.shields.io/github/issues-pr/carlosmoronisud/projeto_final_bloco_02?style=flat-square" alt="Open Pull Requests"/>
-  <img src="https://img.shields.io/badge/status-concluído-brightgreen" alt="Status: Concluído">
+ <img src="https://img.shields.io/badge/status-construção-yellow" alt="Status: Em Construção">
 </div>
 
 <br />
