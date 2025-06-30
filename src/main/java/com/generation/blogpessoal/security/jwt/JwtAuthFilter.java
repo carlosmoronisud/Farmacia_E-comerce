@@ -1,6 +1,5 @@
-package com.generation.farmacia.security.jwt; 
+package com.generation.blogpessoal.security.jwt; 
 
-import com.generation.farmacia.service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,6 +12,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
+
+import com.generation.blogpessoal.service.JwtService;
 
 import java.io.IOException;
 

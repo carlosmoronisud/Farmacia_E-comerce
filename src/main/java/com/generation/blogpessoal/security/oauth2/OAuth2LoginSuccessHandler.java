@@ -1,9 +1,10 @@
-package com.generation.farmacia.security.oauth2; // ATENÇÃO: pacote correto
+package com.generation.blogpessoal.security.oauth2; // ATENÇÃO: pacote correto
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.generation.farmacia.model.Usuario; // ATENÇÃO: pacote correto
-import com.generation.farmacia.repository.UsuarioRepository; // ATENÇÃO: pacote correto
-import com.generation.farmacia.service.JwtService; // ATENÇÃO: pacote correto
+import com.generation.blogpessoal.model.Usuario;
+import com.generation.blogpessoal.repository.UsuarioRepository;
+import com.generation.blogpessoal.service.JwtService;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

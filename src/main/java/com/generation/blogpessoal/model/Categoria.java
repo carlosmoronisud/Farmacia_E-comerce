@@ -1,4 +1,4 @@
-package com.generation.farmacia.model;
+package com.generation.blogpessoal.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties; // Importe JsonIgnoreProperties
 import jakarta.persistence.CascadeType; // Importe CascadeType

@@ -1,7 +1,9 @@
-package com.generation.farmacia.repository;
+package com.generation.blogpessoal.repository;
 
-import com.generation.farmacia.model.Produto;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.generation.blogpessoal.model.Produto;
+
 import java.util.List;
 import java.util.Optional; // Importe Optional
 

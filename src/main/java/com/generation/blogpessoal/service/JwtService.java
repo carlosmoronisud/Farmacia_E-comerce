@@ -1,4 +1,4 @@
-package com.generation.farmacia.service; 
+package com.generation.blogpessoal.service; 
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

@@ -1,15 +1,16 @@
-package com.generation.farmacia.controller;
+package com.generation.blogpessoal.controller;
 
-import com.generation.farmacia.model.Categoria;
-import com.generation.farmacia.model.Produto;
-import com.generation.farmacia.repository.CategoriaRepository;
-import com.generation.farmacia.repository.ProdutoRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+
+import com.generation.blogpessoal.model.Categoria;
+import com.generation.blogpessoal.model.Produto;
+import com.generation.blogpessoal.repository.CategoriaRepository;
+import com.generation.blogpessoal.repository.ProdutoRepository;
 
 import java.util.List;
 import java.util.Optional;

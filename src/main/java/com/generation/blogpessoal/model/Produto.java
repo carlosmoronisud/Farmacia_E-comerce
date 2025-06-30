@@ -1,4 +1,4 @@
-package com.generation.farmacia.model;
+package com.generation.blogpessoal.model;
 
 import java.math.BigDecimal;
 

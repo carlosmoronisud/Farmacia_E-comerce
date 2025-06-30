@@ -1,4 +1,4 @@
-package com.generation.farmacia.user; // Ou o pacote onde você o colocou
+package com.generation.blogpessoal.user; // Ou o pacote onde você o colocou
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +7,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.generation.farmacia.model.Usuario;
-import com.generation.farmacia.repository.UsuarioRepository;
+import com.generation.blogpessoal.model.Usuario;
+import com.generation.blogpessoal.repository.UsuarioRepository;
 
 import java.util.Optional;
 
