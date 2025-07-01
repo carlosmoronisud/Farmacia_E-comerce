@@ -1,147 +1,103 @@
 package com.generation.farmacia.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.Column; // Adicione este import para @Column
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
-import java.util.Collection;
-import java.util.List;
+import jakarta.validation.constraints.NotBlank; // Manter para nome e usuario
+import jakarta.validation.constraints.Size; // Manter para foto
 
 @Entity
 @Table(name = "tb_usuarios")
-public class Usuario implements UserDetails {
+public class Usuario {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @NotBlank(message = "O atributo Nome é obrigatório!")
-    @Size(min = 3, max = 255, message = "O atributo Nome deve ter no mínimo 3 e no máximo 255 caracteres")
-    private String nome;
+	@NotBlank(message = "O Atributo Nome é Obrigatório!")
+	private String nome;
 
-    @NotBlank(message = "O atributo E-mail é obrigatório!")
-    @Email(message = "O atributo E-mail deve ser um e-mail válido!")
-    @Column(unique = true) // Importante: Garante que o e-mail seja único no banco de dados
-    private String email;
+	@Schema(example = "email@email.com.br")
+	@NotBlank(message = "O Atributo Usuário é Obrigatório!")
+	@Email(message = "O Atributo Usuário deve ser um email válido!")
+	private String usuario;
 
-    @NotBlank(message = "O atributo Senha é obrigatório!")
-    @Size(min = 8, message = "A Senha deve ter no mínimo 8 caracteres")
-    @JsonIgnore
-    private String senha;
+	// ANTES:
+	// @NotBlank(message = "O Atributo Senha é Obrigatório!")
+	// @Size(min = 8, message = "A Senha deve ter no mínimo 8 caracteres")
+	// AGORA:
+	// A senha se tornar um campo opcional na model, e o serviço cadastrarUsuario e atualizarUsuario 
+	// serao responsáveis por validar a senha apenas se o provedorAutenticacao for "LOCAL".
+	@Column(nullable = true) // <-- Adicione esta linha
+	private String senha;
 
-    private String foto;
+	@Size(max = 5000, message = "O link da foto não pode ser maior do que 5000 caracteres")
+	private String foto;
+	
+	private String provedorAutenticacao;
+	private String idProvedorExterno;
 
-    // NOVO CAMPO PARA O PAPEL/ROLE
-    @NotBlank(message = "O atributo Role é obrigatório!") // Adiciona validação para a role
-    private String role; // Ex: "ROLE_USER", "ROLE_ADMIN"
+	// ... Getters e Setters ...
 
-    // Construtor padrão (necessário para JPA)
-    public Usuario() {}
+	public Long getId() {
+		return this.id;
+	}
 
-    // Construtor para usuários OAuth2 - AGORA COM O PARÂMETRO 'role'
-    public Usuario(String nome, String email, String foto, String role) {
-        this.nome = nome;
-        this.email = email;
-        this.foto = foto;
-        this.senha = "oauth2_generated_password_for_google_user_1234567890"; // Senha placeholder
-        this.role = role; // Define o papel aqui
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    // --- Getters e Setters ---
-    public Long getId() {
-        return id;
-    }
+	public String getNome() {
+		return this.nome;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public String getUsuario() {
+		return this.usuario;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getSenha() {
+		return this.senha;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
-    public String getSenha() {
-        return senha;
-    }
+	public String getFoto() {
+		return this.foto;
+	}
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+	
+	
+	public String getProvedorAutenticacao() {
+		return provedorAutenticacao;
+	}
 
-    public String getFoto() {
-        return foto;
-    }
+	public void setProvedorAutenticacao(String provedorAutenticacao) {
+		this.provedorAutenticacao = provedorAutenticacao;
+	}
 
-    public void setFoto(String foto) {
-        this.foto = foto;
-    }
+	public String getIdProvedorExterno() {
+		return idProvedorExterno;
+	}
 
-    // NOVO GETTER E SETTER PARA ROLE
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    // --- Métodos da interface UserDetails: Atualizado para usar o campo 'role' ---
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        // Retorna a role do usuário. Spring Security espera que roles comecem com "ROLE_"
-        return List.of(new SimpleGrantedAuthority(this.role));
-    }
-
-    @Override
-    public String getPassword() {
-        return this.senha;
-    }
-
-    @Override
-    public String getUsername() {
-        return this.email;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
+	public void setIdProvedorExterno(String idProvedorExterno) {
+		this.idProvedorExterno = idProvedorExterno;
+	}
 }
