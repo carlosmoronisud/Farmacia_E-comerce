@@ -69,6 +69,9 @@ public class BasicSecurityConfig {
 	                .requestMatchers("/usuarios/logar").permitAll()
 	                .requestMatchers("/usuarios/cadastrar").permitAll()
 	                .requestMatchers("/usuarios/logar/google").permitAll() // logar com google
+	                .requestMatchers("/swagger-ui/**").permitAll()
+	                .requestMatchers("/v3/api-docs/**").permitAll()
+	                .requestMatchers("/swagger-ui.html").permitAll()
 	                .requestMatchers("/error/**").permitAll()
 	                .requestMatchers(HttpMethod.OPTIONS).permitAll()
 	                .anyRequest().authenticated())
